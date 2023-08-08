@@ -1,4 +1,5 @@
-﻿class Program
+﻿using System.Text.Json;
+class Program
 {
     static void Main(string[] args)
     {
@@ -20,6 +21,7 @@
             Console.WriteLine("4 - Exit");
             Console.WriteLine("---------------------");
             Console.Write("\nChoice - ");
+
             int choice = Convert.ToInt32(Console.ReadLine());
 
             PasswordGenerator passwordGenerator = new PasswordGenerator();

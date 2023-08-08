@@ -31,6 +31,8 @@ class PasswordGenerator
             Console.WriteLine("Use A-Z\n");
             Console.WriteLine("1 - yes");
             Console.WriteLine("2 - no");
+            Console.Write("\nChoice - ");
+
             int useUpperCase = Convert.ToInt32(Console.ReadLine());
 
             switch (useUpperCase)
@@ -60,6 +62,8 @@ class PasswordGenerator
             Console.WriteLine("Use a-z\n");
             Console.WriteLine("1 - yes");
             Console.WriteLine("2 - no");
+            Console.Write("\nChoice - ");
+
             int useLowerCase = Convert.ToInt32(Console.ReadLine());
 
             switch (useLowerCase)
@@ -89,6 +93,8 @@ class PasswordGenerator
             Console.WriteLine("Use 0-9\n");
             Console.WriteLine("1 - yes");
             Console.WriteLine("2 - no");
+            Console.Write("\nChoice - ");
+
             int useDigit = Convert.ToInt32(Console.ReadLine());
 
             switch (useDigit)
@@ -118,6 +124,8 @@ class PasswordGenerator
             Console.WriteLine("Use #$%&@^`~\n");
             Console.WriteLine("1 - yes");
             Console.WriteLine("2 - no");
+            Console.Write("\nChoice - ");
+
             int useSpecialCharacters = Convert.ToInt32(Console.ReadLine());
 
             switch (useSpecialCharacters)
@@ -147,6 +155,8 @@ class PasswordGenerator
             Console.WriteLine("Use .,:;\n");
             Console.WriteLine("1 - yes");
             Console.WriteLine("2 - no");
+            Console.Write("\nChoice - ");
+
             int usePunctuationMarks = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
 
@@ -177,6 +187,8 @@ class PasswordGenerator
             Console.WriteLine("Use <>*+!?=\n");
             Console.WriteLine("1 - yes");
             Console.WriteLine("2 - no");
+            Console.Write("\nChoice - ");
+
             int useMathSymbols = Convert.ToInt32(Console.ReadLine());
 
             switch (useMathSymbols)
@@ -199,11 +211,12 @@ class PasswordGenerator
                     break;
             }
         }
-    loop:
+    loop1:
         for (int i = 0; i <= passLenght; i++)
         {
             password += useChar[rand.Next(0, useChar.Length)];
         }
+    loop2:
         Console.WriteLine($"Password: {password}\n");
 
         Console.WriteLine("Select an action:");
@@ -217,12 +230,14 @@ class PasswordGenerator
             case 1:
                 password = "";
                 Console.Clear();
-                goto loop;
-                break;
+                goto loop1;
             case 2:
                 Console.Clear();
                 return;
-
+            default:
+                Console.Clear();
+                Console.WriteLine("Error: non-existing action selected\n");
+                goto loop2;
 
         }
 
